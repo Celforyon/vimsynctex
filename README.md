@@ -12,3 +12,11 @@ then in vim `:VundleInstall`
 In vim `:VundleUpdate`
 
 # Usage
+
+## SynctexView
+
+Opens the viewer.
+
+## SynctexForward
+
+Synchronises the viewer with the cursor position (file, line and column).

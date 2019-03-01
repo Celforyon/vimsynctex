@@ -24,7 +24,17 @@ How it works                                           *vimsynctex-howitworks*
 Usage                                                       *vimsynctex-usage*
 
 Available commands: >
+  :SynctexView
+  :SynctexForward
 <
+
+SYNCTEXVIEW COMMAND                                              *SynctexView*
+
+Opens the viewer.
+
+SYNCTEXFORWARD COMMAND                                        *SynctexForward*
+
+Synchronises the viewer with the cursor position (file, line and column).
 
 ==============================================================================
 Requirements                                         *vimsynctex-requirements*
@@ -39,6 +49,10 @@ or compile vim with +autoservername.
 
 ==============================================================================
 Variables                                               *vimsynctex-variables*
+                                                         *g:vimsynctex_viewer*
+
+- |g:vimsynctex_viewer| (default: 'zathura')
+The viewer binary
 
 ==============================================================================
 License                                                   *vimsynctex-license*
