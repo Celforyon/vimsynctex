@@ -28,4 +28,15 @@ function! vimsynctex#viewer#opts()
 	return l:opts
 endfunction
 
+function! vimsynctex#viewer#forwardopt(file, line, column)
+	let l:name = fnamemodify(g:vimsynctex_viewer, ':t')
+	let l:opt = ''
+
+	if l:name == 'zathura'
+		let l:opt = '--synctex-forward '."'".a:line.':'.a:column.':'.a:file."'"
+	endif
+
+	return l:opt
+endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""

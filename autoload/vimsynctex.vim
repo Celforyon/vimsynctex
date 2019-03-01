@@ -18,7 +18,7 @@ function! vimsynctex#forward()
 	let l:file = expand('%:p')
 	let l:line = line('.')
 	let l:column = col('.')
-	let l:opt_forward = '--synctex-forward '."'".l:line.':'.l:column.':'.l:file."'"
+	let l:opt_forward = vimsynctex#viewer#forwardopt(l:file, l:line, l:column)
 
 	let l:cmd = l:viewer.' '.l:opts.' '.l:opt_forward.' '.l:pdf
 
