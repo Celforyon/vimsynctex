@@ -31,6 +31,7 @@ Usage                                                       *vimsynctex-usage*
 Available commands: >
   :SynctexView
   :SynctexForward
+  :SynctexUpdate
 <
 
 SYNCTEXVIEW COMMAND                                              *SynctexView*
@@ -40,6 +41,11 @@ Opens the viewer.
 SYNCTEXFORWARD COMMAND                                        *SynctexForward*
 
 Synchronises the viewer with the cursor position (file, line and column).
+
+SYNCTEXUPDATE COMMAND                                          *SynctexUpdate*
+
+Updates the current buffer variables.
+Try to set |b:vimsynctex_pdf|.
 
 ==============================================================================
 Requirements                                         *vimsynctex-requirements*
@@ -60,6 +66,8 @@ The viewer binary
 - |g:vimsynctex_pdf| and |b:vimsynctex_pdf|
 The PDF file path.
 the buffer is checked before the global.
+This can be automatically filled, if the synctex.gz file exists and is below
+the |b:vimsynctex_root| directory.
 
 - |b:vimsynctex_root|
 The root of the project. This variable is used to fix paths when using tools

@@ -1,5 +1,16 @@
 """""""""""""""" Functions """"""""""""""""""""""""""""
 
+function! vimsynctex#setpdf()
+	let l:vimsynctex_pdf = vimsynctex#fs#pdf()
+	if l:vimsynctex_pdf != ''
+		let b:vimsynctex_pdf = l:vimsynctex_pdf
+	endif
+endfunction
+
+function! vimsynctex#update()
+	call vimsynctex#setpdf()
+endfunction
+
 function! vimsynctex#view()
 	let l:viewer = vimsynctex#viewer#get()
 	let l:opts = vimsynctex#viewer#opts()

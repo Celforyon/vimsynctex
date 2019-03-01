@@ -20,3 +20,7 @@ Opens the viewer.
 ## SynctexForward
 
 Synchronises the viewer with the cursor position (file, line and column).
+
+## SynctexUpdate
+
+Updates variables for current buffer (e.g. try to find the PDF file).

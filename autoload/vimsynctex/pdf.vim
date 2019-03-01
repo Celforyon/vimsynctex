@@ -7,7 +7,7 @@ function! vimsynctex#pdf#get()
 	elseif exists('g:vimsynctex_pdf')
 		let l:pdf = g:vimsynctex_pdf
 	else
-		echohl WarningMsg|echom '[VimSynctex] you must set (b|g):vimsynctex_pdf'|echohl None
+		echohl WarningMsg|echom '[VimSynctex] you must set (b|g):vimsynctex_pdf (SynctexUpdate?)'|echohl None
 		throw 'vimsynctex#pdf#get'
 	endif
 

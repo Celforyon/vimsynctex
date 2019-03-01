@@ -9,7 +9,11 @@ if !exists('g:vimsynctex_viewer')
 endif
 
 if !exists('b:vimsynctex_root')
-	let b:vimsynctex_root = vimsynctex#fs#root(expand('%:p'))
+	let b:vimsynctex_root = vimsynctex#fs#root()
+endif
+
+if !exists('b:vimsynctex_pdf')
+	call vimsynctex#setpdf()
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -17,6 +21,8 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""" Commands """""""""""""""""""""""""""""
+
+command! SynctexUpdate :call vimsynctex#util#exceptwrapper('vimsynctex#update')
 
 command! SynctexView :call vimsynctex#util#exceptwrapper('vimsynctex#view')
 command! SynctexForward :call vimsynctex#util#exceptwrapper('vimsynctex#forward')
