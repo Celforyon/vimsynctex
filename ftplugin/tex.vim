@@ -14,7 +14,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""" Commands """""""""""""""""""""""""""""
 
-command! SynctexView :call vimsynctex#view()
-command! SynctexForward :call vimsynctex#forward()
+command! SynctexView :call vimsynctex#util#exceptwrapper('vimsynctex#view')
+command! SynctexForward :call vimsynctex#util#exceptwrapper('vimsynctex#forward')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""

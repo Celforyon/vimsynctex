@@ -1,0 +1,8 @@
+#!/bin/sh
+
+vimservername="$1"
+opt_file="$2"
+opt_line="$3"
+opt_column="$4"
+
+vim>/dev/null 2>&1 --servername "${vimservername}" --remote-expr "vimsynctex#backwards('${opt_file}', ${opt_line}, ${opt_column})"

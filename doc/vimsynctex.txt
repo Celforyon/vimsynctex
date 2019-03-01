@@ -20,6 +20,11 @@ This plugin provides commands to ease the use of synctex.
 ==============================================================================
 How it works                                           *vimsynctex-howitworks*
 
+It enables the support of synctex through a command (|SynctexForward|) and a
+remote expression (requiring vim to be compiled with servername support).
+The command synchronise from vim to the viewer.
+The backwards sync is done by the viewer making a remote execution to vim.
+
 ==============================================================================
 Usage                                                       *vimsynctex-usage*
 
@@ -49,10 +54,14 @@ or compile vim with +autoservername.
 
 ==============================================================================
 Variables                                               *vimsynctex-variables*
-                                                         *g:vimsynctex_viewer*
+                   *g:vimsynctex_viewer* *g:vimsynctex_pdf* *b:vimsynctex_pdf*
 
 - |g:vimsynctex_viewer| (default: 'zathura')
 The viewer binary
+
+- |g:vimsynctex_pdf| and |b:vimsynctex_pdf|
+The PDF file path.
+the buffer is checked before the global.
 
 ==============================================================================
 License                                                   *vimsynctex-license*
