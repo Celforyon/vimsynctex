@@ -1,0 +1,46 @@
+vimsynctex.txt   Easy synctex for vim
+
+Author: Alexis Pereda
+License: GPLv3
+
+CONTENTS                                                          *vimsynctex*
+
+1. Introduction  |vimsynctex-introduction|
+2. How it works  |vimsynctex-howitworks|
+3. Usage         |vimsynctex-usage|
+4. Requirements  |vimsynctex-requirements|
+5. Variables     |vimsynctex-variables|
+7. License       |vimsynctex-license|
+
+==============================================================================
+Introduction                                         *vimsynctex-introduction*
+
+This plugin provides commands to ease the use of synctex.
+
+==============================================================================
+How it works                                           *vimsynctex-howitworks*
+
+==============================================================================
+Usage                                                       *vimsynctex-usage*
+
+Available commands: >
+<
+
+==============================================================================
+Requirements                                         *vimsynctex-requirements*
+
+For backwards synctex:
+- |clientserver| support
+- |--servername| set
+For that, you can set an alias like: >
+  alias vim='vim --servername $$'
+<
+or compile vim with +autoservername.
+
+==============================================================================
+Variables                                               *vimsynctex-variables*
+
+==============================================================================
+License                                                   *vimsynctex-license*
+
+This software is licensed under the GPL v3 license
