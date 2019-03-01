@@ -45,16 +45,14 @@ Synchronises the viewer with the cursor position (file, line and column).
 Requirements                                         *vimsynctex-requirements*
 
 For backwards synctex:
-- |clientserver| support
-- |--servername| set
-For that, you can set an alias like: >
-  alias vim='vim --servername $$'
-<
-or compile vim with +autoservername.
+- |clientserver| support and a valid |v:servername|
+- git and being in a git repository *or* manually setting |b:vimsynctex_root|
+if using UseLatex.cmake
 
 ==============================================================================
 Variables                                               *vimsynctex-variables*
                    *g:vimsynctex_viewer* *g:vimsynctex_pdf* *b:vimsynctex_pdf*
+                                                           *b:vimsynctex_root*
 
 - |g:vimsynctex_viewer| (default: 'zathura')
 The viewer binary
@@ -62,6 +60,11 @@ The viewer binary
 - |g:vimsynctex_pdf| and |b:vimsynctex_pdf|
 The PDF file path.
 the buffer is checked before the global.
+
+- |b:vimsynctex_root|
+The root of the project. This variable is used to fix paths when using tools
+like UseLatex.cmake that copies sources into the build directory.
+Automatically set if in a git repository.
 
 ==============================================================================
 License                                                   *vimsynctex-license*

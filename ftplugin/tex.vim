@@ -8,6 +8,10 @@ if !exists('g:vimsynctex_viewer')
 	let g:vimsynctex_viewer = 'zathura'
 endif
 
+if !exists('b:vimsynctex_root')
+	let b:vimsynctex_root = vimsynctex#fs#root(expand('%:p'))
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""" Functions """"""""""""""""""""""""""""
 

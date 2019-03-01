@@ -26,7 +26,8 @@ function! vimsynctex#forward()
 endfunction
 
 function! vimsynctex#backwards(f, l, c)
-	execute 'edit '.a:f
+	let l:f = vimsynctex#fs#realsource(a:f)
+	execute 'edit '.l:f
 	call cursor(a:l, max([a:c, 1]))
 	redraw!
 endfunction
