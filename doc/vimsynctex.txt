@@ -62,6 +62,7 @@ Variables                                               *vimsynctex-variables*
 
 - |g:vimsynctex_viewer| (default: 'zathura')
 The viewer binary
+Possible values: zathura, evince
 
 - |g:vimsynctex_pdf| and |b:vimsynctex_pdf|
 The PDF file path.

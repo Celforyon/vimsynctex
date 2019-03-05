@@ -1,3 +1,8 @@
+# Compatibility
+
+- zathura
+- evince
+
 # Installation
 
 ## With Vundle

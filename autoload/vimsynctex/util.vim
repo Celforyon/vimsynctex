@@ -1,6 +1,7 @@
 """""""""""""""" Functions """"""""""""""""""""""""""""
 
 function! vimsynctex#util#bgexec(cmdline)
+	echom a:cmdline
 	call system(a:cmdline.'&')
 endfunction
 

@@ -12,28 +12,24 @@ function! vimsynctex#update()
 endfunction
 
 function! vimsynctex#view()
-	let l:viewer = vimsynctex#viewer#get()
-	let l:opts = vimsynctex#viewer#opts()
 	let l:pdf = vimsynctex#pdf#get()
-
-	let l:cmd = l:viewer.' '.l:opts.' '.l:pdf
-
-	call vimsynctex#util#bgexec(l:cmd)
+	let l:cmds = vimsynctex#viewer#opencmds(l:pdf)
+	for cmd in l:cmds
+		call vimsynctex#util#bgexec(cmd)
+	endfor
 endfunction
 
 function! vimsynctex#forward()
-	let l:viewer = vimsynctex#viewer#get()
-	let l:opts = vimsynctex#viewer#opts()
 	let l:pdf = vimsynctex#pdf#get()
-
 	let l:file = expand('%:p')
 	let l:line = line('.')
 	let l:column = col('.')
-	let l:opt_forward = vimsynctex#viewer#forwardopt(l:file, l:line, l:column)
 
-	let l:cmd = l:viewer.' '.l:opts.' '.l:opt_forward.' '.l:pdf
+	let l:cmds = vimsynctex#viewer#forwardcmds(l:pdf, l:file, l:line, l:column)
 
-	call vimsynctex#util#bgexec(l:cmd)
+	for cmd in l:cmds
+		call vimsynctex#util#bgexec(cmd)
+	endfor
 endfunction
 
 function! vimsynctex#backwards(f, l, c)
