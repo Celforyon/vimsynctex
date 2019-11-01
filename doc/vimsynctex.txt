@@ -54,6 +54,7 @@ For backwards synctex:
 - |clientserver| support and a valid |v:servername|
 - git and being in a git repository *or* manually setting |b:vimsynctex_root|
 if using UseLatex.cmake
+- python: gobject
 
 ==============================================================================
 Variables                                               *vimsynctex-variables*

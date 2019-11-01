@@ -1,8 +1,7 @@
 """""""""""""""" Functions """"""""""""""""""""""""""""
 
 function! vimsynctex#util#bgexec(cmdline)
-	echom a:cmdline
-	call system(a:cmdline.'&')
+	return system(a:cmdline.'>/dev/null 2>/dev/null & echo -n $!')
 endfunction
 
 function! vimsynctex#util#exceptwrapper(f)

@@ -39,10 +39,15 @@ function! vimsynctex#viewer#forwardcmds(pdf, file, line, column)
 		let l:cmds += [s:scriptsdir.'evince_forward_search '."'".a:pdf."' ".a:line." '".a:file."'"]
 	else
 		echohl WarningMsg|echom '[VimSynctex] unsupported viewer: '.l:name|echohl None
-		throw 'vimsynctex#viewer#get'
+		throw 'vimsynctex#viewer#forwardcmds'
 	endif
 
 	return l:cmds
+endfunction
+
+function! vimsynctex#viewer#running(pid)
+	let l:comm = system("cat /proc/".a:pid."/comm")
+	return l:comm[:-2] == fnamemodify(g:vimsynctex_viewer, ':t')
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
