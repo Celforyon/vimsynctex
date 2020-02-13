@@ -1,18 +1,16 @@
 """""""""""""""" Functions """"""""""""""""""""""""""""
 
 function! vimsynctex#fs#checkgitdir(dir)
-	call system('cd '.a:dir.'; git>/dev/null 2>&1 rev-parse --show-toplevel')
-	return !v:shell_error
+	let l:dir = system('cd '.a:dir.'; git 2>/dev/null rev-parse --show-toplevel')
+	if v:shell_error
+		return ''
+	endif
+	return substitute(l:dir, '\n', '', 'g')
 endfunction
 
 function! vimsynctex#fs#root()
 	let l:dir = fnamemodify(expand('%:p'), ':h')
-
-	if vimsynctex#fs#checkgitdir(l:dir)
-		return system('cd '.l:dir.'; git 2>/dev/null rev-parse --show-toplevel|tr -d "\n"')
-	endif
-
-	return ''
+	return vimsynctex#fs#checkgitdir(l:dir)
 endfunction()
 
 function! vimsynctex#fs#realsource(f)
@@ -31,7 +29,7 @@ function! vimsynctex#fs#synctex()
 		return ''
 	endif
 
-	let l:list = split(globpath(l:root, '**/*.synctex.gz'), '\n')
+	let l:list = split(globpath(l:root, 'build/**/*.synctex.gz'), '\n')
 
 	if len(l:list) == 0
 		return ''
