@@ -30,26 +30,43 @@ function! vimsynctex#fs#synctex()
 	endif
 
 	let l:list = split(globpath(l:root, 'build/**/*.synctex.gz'), '\n')
+	let l:plist = []
 
-	if len(l:list) == 0
-		return ''
-	endif
+	for elem in l:list
+		let l:plist += [fnamemodify(elem, 'p')]
+	endfor
 
-	return fnamemodify(l:list[-1], ':p')
+	return l:plist
 endfunction
 
-function! vimsynctex#fs#pdf()
+function! vimsynctex#fs#pdf(excludelist)
 	let l:synctex = vimsynctex#fs#synctex()
-	if l:synctex == ''
+	if l:synctex == []
 		return ''
 	endif
 
-	let l:pdf = substitute(l:synctex, '\.synctex\.gz$', '.pdf', '')
-	if !filereadable(l:pdf)
-		return ''
+	let l:pdfs = []
+	let l:apdfs = []
+
+	for stx in l:synctex
+		let l:pdf = substitute(stx, '\.synctex\.gz$', '.pdf', '')
+		if filereadable(l:pdf)
+			let l:apdfs += [l:pdf]
+			if count(a:excludelist, l:pdf) == 0
+				let l:pdfs += [l:pdf]
+			endif
+		endif
+	endfor
+
+	if l:pdfs == []
+		if l:apdfs == []
+			return ''
+		else
+			return l:apdfs[0]
+		endif
 	endif
 
-	return l:pdf
+	return l:pdfs[0]
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""

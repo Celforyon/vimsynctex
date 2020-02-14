@@ -13,7 +13,7 @@ if !exists('b:vimsynctex_root')
 endif
 
 if !exists('b:vimsynctex_pdf')
-	call vimsynctex#setpdf()
+	call vimsynctex#setpdf([])
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -22,7 +22,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""" Commands """""""""""""""""""""""""""""
 
-command! SynctexUpdate :call vimsynctex#util#exceptwrapper('vimsynctex#update')
+command! -bang SynctexUpdate :call vimsynctex#util#exceptwrapper('vimsynctex#update', <bang>0)
 
 command! SynctexView :call vimsynctex#util#exceptwrapper('vimsynctex#view')
 command! SynctexForward :call vimsynctex#util#exceptwrapper('vimsynctex#forward')

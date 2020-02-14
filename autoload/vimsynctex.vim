@@ -6,15 +6,19 @@ let s:vimsynctex_pids = []
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""" Functions """"""""""""""""""""""""""""
 
-function! vimsynctex#setpdf()
-	let l:vimsynctex_pdf = vimsynctex#fs#pdf()
+function! vimsynctex#setpdf(excludelist)
+	let l:vimsynctex_pdf = vimsynctex#fs#pdf(a:excludelist)
 	if l:vimsynctex_pdf != ''
 		let b:vimsynctex_pdf = l:vimsynctex_pdf
 	endif
 endfunction
 
-function! vimsynctex#update()
-	call vimsynctex#setpdf()
+function! vimsynctex#update(bang)
+	let excludelist = []
+	if a:bang
+		let excludelist += [b:vimsynctex_pdf]
+	endif
+	call vimsynctex#setpdf(l:excludelist)
 endfunction
 
 function! vimsynctex#view()

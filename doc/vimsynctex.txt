@@ -46,6 +46,7 @@ SYNCTEXUPDATE COMMAND                                          *SynctexUpdate*
 
 Updates the current buffer variables.
 Try to set |b:vimsynctex_pdf|.
+With !, excludes current value of |b:vimsynctex_pdf|.
 
 ==============================================================================
 Requirements                                         *vimsynctex-requirements*
