@@ -23,6 +23,13 @@ function! vimsynctex#fs#realsource(f)
 	return l:f
 endfunction
 
+function! vimsynctex#fs#deepest(lhs, rhs)
+	let l:lhs = strlen(substitute(a:lhs, '[^/]', '', 'g'))
+	let l:rhs = strlen(substitute(a:rhs, '[^/]', '', 'g'))
+
+	return l:rhs - l:lhs
+endfunction()
+
 function! vimsynctex#fs#synctex()
 	let l:root = vimsynctex#fs#root()
 	if l:root == ''
@@ -36,7 +43,7 @@ function! vimsynctex#fs#synctex()
 		let l:plist += [fnamemodify(elem, 'p')]
 	endfor
 
-	return l:plist
+	return sort(l:plist, 'vimsynctex#fs#deepest')
 endfunction
 
 function! vimsynctex#fs#pdf(excludelist)
