@@ -25,6 +25,6 @@ endif
 command! -bang SynctexUpdate :call vimsynctex#util#exceptwrapper('vimsynctex#update', <bang>0)
 
 command! SynctexView :call vimsynctex#util#exceptwrapper('vimsynctex#view')
-command! SynctexForward :call vimsynctex#util#exceptwrapper('vimsynctex#forward')
+command! -bang SynctexForward :call vimsynctex#util#exceptwrapper('vimsynctex#forward', <bang>0)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""

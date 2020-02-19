@@ -36,7 +36,11 @@ function! vimsynctex#view()
 	endfor
 endfunction
 
-function! vimsynctex#forward()
+function! vimsynctex#forward(bang)
+	if a:bang
+		call vimsynctex#update(a:bang)
+	endif
+
 	if !vimsynctex#viewer#running(s:vimsynctex_viewer_pid)
 		call vimsynctex#view()
 	endif
