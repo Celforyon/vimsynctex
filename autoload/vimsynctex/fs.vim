@@ -33,7 +33,7 @@ endfunction()
 function! vimsynctex#fs#synctex()
 	let l:root = vimsynctex#fs#root()
 	if l:root == ''
-		return ''
+		return []
 	endif
 
 	let l:list = split(globpath(l:root, 'build/**/*.synctex.gz'), '\n')
